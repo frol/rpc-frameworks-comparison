@@ -1,0 +1,18 @@
+syntax = "proto3";
+package task_gateway;
+
+service TaskGateway {
+    rpc create_task (Task) returns (Task) {}
+}
+
+message DateTime {
+    string iso8601 = 1;
+}
+
+message Task {
+    int32 identifier = 1;
+    string name = 2;
+    string filename = 3;
+    bytes file = 4;
+    DateTime created_at = 5;
+}
